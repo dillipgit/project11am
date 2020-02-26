@@ -1,5 +1,6 @@
 package in.nit.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import in.nit.model.ShipmentType;
 import in.nit.model.WhUserTypeModel;
 import in.nit.service.IWhUserTypeService;
+import in.nit.view.ShipmentTypePdfView;
+import in.nit.view.WhUserExcelView;
+import in.nit.view.WhUserPdfView;
 
 @Controller
 @RequestMapping("/user")
@@ -88,5 +94,39 @@ public class WhUserTypeController {
 		return "whUserTypedataView";
 		
 	}
+	
+	@RequestMapping("/excel")
+	public ModelAndView showExcel() {
+		ModelAndView m = new ModelAndView();
+		m.setView(new WhUserExcelView());
+		
+		//fetching data from database
+		List<WhUserTypeModel> list = service.selectAllUser();
+		m.addObject("list",list);
+		return m;
+		
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView showPdf(@RequestParam(value = "id", required = false) Integer sid) {
+
+		ModelAndView model = new ModelAndView();
+
+		model.setView(new WhUserPdfView());
+		if (sid == null) {
+
+			List<WhUserTypeModel> list = service.selectAllUser();
+			// send data to pdf file
+			model.addObject("list", list);
+		} else {
+			// export one row by id
+			WhUserTypeModel st = service.getOneUserType(sid);
+			model.addObject("list", Arrays.asList(st));
+		}
+
+		return model;
+
+	}
+
 
 }

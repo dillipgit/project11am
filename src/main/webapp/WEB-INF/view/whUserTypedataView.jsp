@@ -32,5 +32,8 @@
 <th>IDNUMBER</th><td> ${ob.id}</td>
 </tr>
 </table>
+<a href="excel?id= ${ob.userId}">Excel Export</a>
+	<a href="pdf?id= ${ob.userId}">Pdf Export</a>
+
 </body>
 </html>
