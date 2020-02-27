@@ -23,8 +23,8 @@
     <th>NOTE</th><td>${ob.desc}</td>
     </tr>
     </table>
-    <a href="excel?id= ${ob.id}">Excel Export</a>
-	<a href="pdf?id= ${ob.id}">Pdf Export</a>
+    <a href="excel?id= ${ob.id}"> <img  src="../resources/images/excel.jfif" width="60" height="60"></a></a>
+	<a href="pdf?id= ${ob.id}"> <img  src="../resources/images/pdf.jfif" width="60" height="60"></a></a>
     </body>
     </html>
     

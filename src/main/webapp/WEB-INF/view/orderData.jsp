@@ -15,7 +15,7 @@
 				<th>METHOD</th>
 				<th>ACCEPT</th>
 				<th>DESC</th>
-				<th colspan="3">DELETE</th>
+				<th colspan="3">OPERATIONS</th>
 			</tr>
 			<c:forEach items="${list}" var="ob">
 				<tr>
@@ -25,9 +25,9 @@
 					<td>${ob.method}</td>
 					<td>${ob.accept}</td>
 					<td>${ob.desc}</td>
-					<td><a href="delete?mid= ${ob.id}">delete</a></td>
-					<td><a href="edit?mid= ${ob.id}">edit</a></td>
-					<td><a href="view?mid= ${ob.id}">view</a></td>
+					<td><a href="delete?mid= ${ob.id}"> <img  src="../resources/images/delete.png" width="50" height="50"></a></a></td>
+					<td><a href="edit?mid= ${ob.id}"> <img  src="../resources/images/edit.jfif" width="50" height="50"></a></a></td>
+					<td><a href="view?mid= ${ob.id}"> <img  src="../resources/images/view.png" width="50" height="50"></a></a></td>
 				</tr>
 
 			</c:forEach>
@@ -37,6 +37,6 @@
 		<h1>No Data Found</h1>
 	</c:otherwise>
 </c:choose>
-<a href="excel">Excel Export</a>
-<a href="pdf">PDF Export</a>
+<a href="excel"> <img  src="../resources/images/excel.jfif" width="100" height="60"></a></a>
+<a href="pdf"> <img  src="../resources/images/pdf.jfif" width="100" height="60"></a></a>
 ${msg}

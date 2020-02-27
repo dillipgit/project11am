@@ -17,6 +17,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -24,16 +26,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource(value = "classpath:app.properties")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private Environment env;
-	
 
 	// datasource properties
 	@Bean
 	public DataSource creaDataSource() {
-		
+
 		System.out.println(env);
 		BasicDataSource bdc = null;
 		bdc = new BasicDataSource();
@@ -51,7 +52,7 @@ public class AppConfig {
 		s = new LocalSessionFactoryBean();
 		s.setDataSource(creaDataSource());
 		s.setHibernateProperties(props());
-		//s.setAnnotatedClasses(Employee.class);
+		// s.setAnnotatedClasses(Employee.class);
 		s.setPackagesToScan("in.nit");
 		return s;
 	}
@@ -68,7 +69,7 @@ public class AppConfig {
 		return prop;
 	}
 
-	// Hibernate Template
+	// Hibernates Template
 	@Bean
 	public HibernateTemplate ht() {
 		HibernateTemplate ht = null;
@@ -96,11 +97,17 @@ public class AppConfig {
 		invr.setSuffix(env.getProperty("mvc.suffix"));
 		return invr;
 	}
-	
-	//active CMF(Common multipart Resolver)
+
+	// active CMF(Common mulltiparts Resolver)
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		return new CommonsMultipartResolver();
-		
+
+	}
+
+	// enable resources folder
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+
 	}
 }

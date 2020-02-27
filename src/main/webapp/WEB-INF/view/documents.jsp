@@ -29,7 +29,7 @@ DOC::<input type="file" name="fileOb">
     <tr>
     <td>${ob[0]}</td>
     <td>${ob[1]}</td>
-    <td><a href="download?fileId=${ob[0]}">DOWNLOAD</a></td>
+    <td><a href="download?fileId=${ob[0]}"> <img  src="../resources/images/download.jfif" width="50" height="40"></a></a></td>
     </tr>
     </c:forEach>
     </table>

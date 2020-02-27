@@ -30,9 +30,9 @@
 						<td>${ob.userIdType }</td>
 						<td>${ob.other}</td>
 						<td>${ob. id }</td>
-						<td><a href="delete?userId=${ob.userId}">delete</a></td>
-						<td><a href="edit?userId=${ob.userId}">edit</a></td>
-						<td><a href="view?userId=${ob.userId}">view</a></td>
+						<td><a href="delete?userId=${ob.userId}"> <img  src="../resources/images/delete.png" width="60" height="40"></a></a></td>
+						<td><a href="edit?userId=${ob.userId}"> <img  src="../resources/images/edit.jfif" width="60" height="40"></a></a></td>
+						<td><a href="view?userId=${ob.userId}"> <img  src="../resources/images/view.png" width="60" height="40"></a></a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -41,7 +41,7 @@
 			<h3>No Data found!</h3>
 		</c:otherwise>
 	</c:choose>
-	<a href="excel">Excel Export</a>
-	<a href="pdf">PDF Export</a>
+	<a href="excel"> <img  src="../resources/images/excel.jfif" width="120" height="70"></a></a>
+	<a href="pdf"> <img  src="../resources/images/pdf.jfif" width="120" height="70"></a></a>
 </body>
 </html>

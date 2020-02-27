@@ -29,7 +29,9 @@
 			<td>${ob.shipDesc}</td>
 		</tr>
 	</table>
-	<a href="excel?id=${ob.shipId}">Excel Export</a>
-	<a href="pdf?id=${ob.shipId}">Pdf Export</a>
+	<a href="excel?id=${ob.shipId}">
+	               <img  src="../resources/images/excel.jfif" width="60" height="60"></a>
+	<a href="pdf?id=${ob.shipId}">
+	               <img  src="../resources/images/pdf.jfif"  width="60" height="60"></a>
 </body>
 </html>
