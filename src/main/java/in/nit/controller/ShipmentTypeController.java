@@ -3,6 +3,8 @@ package in.nit.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.ShipmentType;
 import in.nit.service.IShipmentTypeService;
+import in.nit.util.ShipmentTypeUtil;
 import in.nit.view.ShipmentTypeExcelView;
 import in.nit.view.ShipmentTypePdfView;
 
@@ -23,6 +26,11 @@ public class ShipmentTypeController {
 
 	@Autowired
 	private IShipmentTypeService service;
+	@Autowired
+	private ServletContext context;
+	@Autowired
+	private ShipmentTypeUtil util;
+	
 
 	@RequestMapping("/show")
 	public String showRegPage(Model model) {
@@ -156,6 +164,15 @@ public class ShipmentTypeController {
 
 		return model;
 
+	}
+	@RequestMapping("/charts")
+	public String showCharts() {
+		List<Object[]> list=service.getShipmentModeCount();
+		String path=context.getRealPath("/");
+		util.generatePie(path,list);
+		util.generateBar(path, list);
+		return "shipmentTypeCharts";
+		
 	}
 
 }

@@ -15,7 +15,7 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
 	@Autowired
 	private IShipmentTypeDao dao;
-	
+
 	@Transactional
 	@Override
 	public Integer saveShipmentService(ShipmentType st) {
@@ -26,8 +26,7 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 	@Override
 	public List<ShipmentType> getAllShipmentType() {
 		List<ShipmentType> list = dao.getAllShipmentType();
-		Collections.sort(list,
-				(o1,o2)->o1.getShipId()-o2.getShipId());
+		Collections.sort(list, (o1, o2) -> o1.getShipId() - o2.getShipId());
 		return list;
 	}
 
@@ -35,24 +34,27 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 	@Override
 	public void deleteShipment(Integer id) {
 		dao.deleteShipment(id);
-		
+
 	}
 
-	
 	@Transactional
 	@Override
 	public ShipmentType getOneShipmentType(Integer id) {
-		
+
 		return dao.getOneShipmentType(id);
 	}
-	
-	
 
 	@Override
 	@Transactional
 	public void updateOneShipment(ShipmentType ob) {
 		dao.updateOneShipment(ob);
-		
+
+	}
+
+	@Override
+	public List<Object[]> getShipmentModeCount() {
+
+		return dao.getShipmentModeCount();
 	}
 
 }
