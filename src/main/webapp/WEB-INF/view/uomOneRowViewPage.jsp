@@ -27,5 +27,7 @@
 		</tr>
 		
 	</table>
+	<a href="excel?id= ${ob.id}">Excel Export</a>
+	<a href="pdf?id= ${ob.id}">Pdf Export</a>
 </body>
 </html>

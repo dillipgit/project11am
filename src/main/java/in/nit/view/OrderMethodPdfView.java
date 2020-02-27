@@ -14,7 +14,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
-import in.nit.model.ShipmentType;
+import in.nit.model.OrderMethod;
 
 public class OrderMethodPdfView extends AbstractPdfView{
 
@@ -26,35 +26,35 @@ public class OrderMethodPdfView extends AbstractPdfView{
 			                                                    HttpServletResponse response) throws Exception {
 		
 		//download file
-		response.addHeader("Content-Disposition","attachement;filename=Shipment.pdf");
+		response.addHeader("Content-Disposition","attachement;filename=ordermethod.pdf");
 		
 		//create element
-		Paragraph p = new Paragraph("Welcome To ShipmentType");
+		Paragraph p = new Paragraph("Welcome To Order Method");
 		
 		
 		//add element to document
 		document.add(p);
 		
 		//read data from model
-		List<ShipmentType> list = (List<ShipmentType>) model.get("list");
+		List<OrderMethod> list = (List<OrderMethod>) model.get("list");
 		
 		//create table with no of colums
 		PdfPTable t = new PdfPTable(6);
 		t.addCell("ID");
 		t.addCell("MODE");
 		t.addCell("CODE");
-		t.addCell("ENABLE SHIPMENT");
-		t.addCell("GRADE");
+		t.addCell("METHOD");
+		t.addCell("ACCEPT");
 		t.addCell("NOTE");
 		
 		//adding data to table
-		for(ShipmentType st :list) {
-			t.addCell(st.getShipId().toString());
-			t.addCell(st.getShipMode());
-			t.addCell(st.getShipCode());
-			t.addCell(st.getEnbShip());
-			t.addCell(st.getShipGrade());
-			t.addCell(st.getShipDesc());
+		for(OrderMethod st :list) {
+			t.addCell(st.getId().toString());
+			t.addCell(st.getMode());
+			t.addCell(st.getCode());
+			t.addCell(st.getMethod());
+			//t.addCell(st.getAccept());
+			t.addCell(st.getDesc());
 		}
 		//add table to document
 		document.add(t);

@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
-import in.nit.model.ShipmentType;
+import in.nit.model.OrderMethod;
 
 public class OrderMethodExcelView extends AbstractXlsxView {
 
@@ -19,29 +19,29 @@ public class OrderMethodExcelView extends AbstractXlsxView {
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// define filename
-		response.addHeader("Content-Disposition", "attachment;filename=shipments.xlsx");
-		Sheet s = (Sheet) workbook.createSheet("SHIPMENTTYPE");
+		response.addHeader("Content-Disposition", "attachment;filename=orderMethod.xlsx");
+		Sheet s = (Sheet) workbook.createSheet("OrderMethod");
 
 		// construct-row-0
 		setHeader(s);
 
 		// read model data
-		List<ShipmentType> list = (List<ShipmentType>) model.get("list");
+		List<OrderMethod> list = (List<OrderMethod>) model.get("list");
 		setBody(s, list);
 
 	}
 
-	private void setBody(Sheet s, List<ShipmentType> list) {
+	private void setBody(Sheet s, List<OrderMethod> list) {
 		Integer count = 1;
 
-		for (ShipmentType st : list) {
+		for (OrderMethod st : list) {
 			Row r = s.createRow(count++);
-			r.createCell(0).setCellValue(st.getShipId());
-			r.createCell(1).setCellValue(st.getShipMode());
-			r.createCell(2).setCellValue(st.getShipCode());
-			r.createCell(3).setCellValue(st.getEnbShip());
-			r.createCell(4).setCellValue(st.getShipGrade());
-			r.createCell(5).setCellValue(st.getShipDesc());
+			r.createCell(0).setCellValue(st.getId());
+			r.createCell(1).setCellValue(st.getMode());
+			r.createCell(2).setCellValue(st.getCode());
+			r.createCell(3).setCellValue(st.getMethod());
+			// r.createCell(4).setCellValue(st.getAccept());
+			r.createCell(5).setCellValue(st.getDesc());
 
 		}
 
@@ -52,8 +52,8 @@ public class OrderMethodExcelView extends AbstractXlsxView {
 		r.createCell(0).setCellValue("ID");
 		r.createCell(1).setCellValue("MODE");
 		r.createCell(2).setCellValue("CODE");
-		r.createCell(3).setCellValue("ENABLE");
-		r.createCell(4).setCellValue("GRADE");
+		r.createCell(3).setCellValue("METHOD");
+		r.createCell(4).setCellValue("ACCEPT");
 		r.createCell(5).setCellValue("NOTE");
 	}
 
