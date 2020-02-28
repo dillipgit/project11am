@@ -3,6 +3,8 @@ package in.nit.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import in.nit.model.OrderMethod;
 import in.nit.model.WhUserTypeModel;
 import in.nit.service.IOrderService;
+import in.nit.util.OrderMethodUtil;
 import in.nit.view.OrderMethodExcelView;
 import in.nit.view.OrderMethodPdfView;
 import in.nit.view.WhUserExcelView;
@@ -23,6 +26,12 @@ import in.nit.view.WhUserPdfView;
 @Controller
 @RequestMapping("/order")
 public class OrderController {
+
+	@Autowired
+	private ServletContext context;
+
+	@Autowired
+	private OrderMethodUtil util;
 
 	@Autowired
 	private IOrderService service;
@@ -119,6 +128,16 @@ public class OrderController {
 		}
 
 		return model;
+
+	}
+
+	@RequestMapping("/charts")
+	public String showChart() {
+		List<Object[]> list = service.getOrderTypeCount();
+		String path = context.getRealPath("/");
+		util.generatePie(path, list);
+		util.generateBar(path, list);
+		return "shipmentTypeCharts";
 
 	}
 

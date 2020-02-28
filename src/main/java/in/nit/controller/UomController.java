@@ -3,6 +3,8 @@ package in.nit.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import in.nit.model.OrderMethod;
 import in.nit.model.UOM;
 import in.nit.service.IUmoService;
+import in.nit.util.UOMUtil;
 import in.nit.view.UOMExcelView;
 import in.nit.view.UOMPdfView;
 import in.nit.view.WhUserExcelView;
@@ -23,6 +26,12 @@ import in.nit.view.WhUserPdfView;
 @Controller
 @RequestMapping("/uom")
 public class UomController {
+	
+	@Autowired
+	private ServletContext context;
+	
+	@Autowired
+	private UOMUtil util;
 
 	@Autowired
 	private IUmoService service;
@@ -119,6 +128,15 @@ public class UomController {
 
 		return model;
 
+	}
+	@RequestMapping("/charts")
+	public String showChart() {
+		List<Object[]> list = service.getUOMtypes();
+		String path = context.getRealPath("/");
+		util.generatePie(path, list);
+		util.generateBar(path, list);
+		return "shipmentTypeCharts"; 
+		
 	}
 
 }

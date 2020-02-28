@@ -34,8 +34,8 @@ public class OrderMethod {
 	private String mode;
 	@Column(name = "MCODE")
 	private String code;
-	@Column(name = "MMETHOD")
-	private String method;
+	@Column(name = "METHOD")
+	private String orderType;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "omcbtab",

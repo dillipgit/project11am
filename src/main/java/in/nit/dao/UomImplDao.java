@@ -40,4 +40,12 @@ public class UomImplDao implements IUomDao{
 		
 	}
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	@Override
+	public List<Object[]> getUOMtypes() {
+		String GET_DATA_BY_TYPE="select umoType,count(umoType) "
+				                                       + "  from in.nit.model.UOM group by umoType";
+		return (List<Object[]>) ht.find(GET_DATA_BY_TYPE);
+	}
+
 }

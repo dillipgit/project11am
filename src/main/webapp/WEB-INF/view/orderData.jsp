@@ -12,7 +12,7 @@
 				<th>ID</th>
 				<th>MODE</th>
 				<th>CODE</th>
-				<th>METHOD</th>
+				<th>TYPE</th>
 				<th>ACCEPT</th>
 				<th>DESC</th>
 				<th colspan="3">OPERATIONS</th>
@@ -22,7 +22,7 @@
 					<td>${ob.id}</td>
 					<td>${ob.mode}</td>
 					<td>${ob.code}</td>
-					<td>${ob.method}</td>
+					<td>${ob.orderType}</td>
 					<td>${ob.accept}</td>
 					<td>${ob.desc}</td>
 					<td><a href="delete?mid= ${ob.id}"> <img  src="../resources/images/delete.png" width="50" height="50"></a></a></td>

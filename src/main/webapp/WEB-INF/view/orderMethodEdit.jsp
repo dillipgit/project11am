@@ -16,7 +16,7 @@
     ORDER CODE::
     <form:input path="code"/>
     ORDER TYPE::
-    <form:select path="method">
+    <form:select path="orderType">
     <form:option value="">---select---</form:option>
     <form:option value="fifo">fifo</form:option>
     <form:option value="lifo">lifo</form:option>

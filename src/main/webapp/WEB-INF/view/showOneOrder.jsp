@@ -14,7 +14,7 @@
     <th>CODE</th><td>${ob.code}</td>
     </tr>
     <tr>
-    <th>ORDER TYPE</th><td>${ob.method}</td>
+    <th>ORDER TYPE</th><td>${ob.orderType}</td>
     </tr>
     <tr>
     <th>ACCEPT</th><td>${ob.accept}</td>

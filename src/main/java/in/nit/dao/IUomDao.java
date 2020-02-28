@@ -12,5 +12,7 @@ public interface IUomDao {
 	
 	public UOM getOneUmo(Integer id);
 	public void updateOneUom(UOM uom);
+	
+	public List<Object[]> getUOMtypes();
 
 }

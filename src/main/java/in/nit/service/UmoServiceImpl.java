@@ -58,4 +58,10 @@ public class UmoServiceImpl implements IUmoService{
 		
 	}
 
+	@Override
+	public List<Object[]> getUOMtypes() {
+		// TODO Auto-generated method stub
+		return dao.getUOMtypes();
+	}
+
 }

@@ -45,4 +45,10 @@ public class OrderServiceImpl implements IOrderService{
 		
 	}
 
+	@Override
+	public List<Object[]> getOrderTypeCount() {
+		
+		return dao.getOrderTypeCount();
+	}
+
 }
