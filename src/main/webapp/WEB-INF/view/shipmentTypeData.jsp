@@ -43,9 +43,9 @@
 	</c:choose>
 	<a href="excel"> <img src="../resources/images/excel.jfif"
 		width="120" height="60"></a>
-	</a>
+
 	<a href="pdf"> <img src="../resources/images/pdf.jfif" width="120"
 		height="60"></a>
-	</a>
+	
 </body>
 </html>
