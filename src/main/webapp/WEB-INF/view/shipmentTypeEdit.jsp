@@ -2,9 +2,16 @@
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
     
     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <html>
     <body>
-    <h1 align="center"  style="color: fuchsia;">Edit Shipment</h1>
+    <%@include file="userMenu.jsp"%>
+    <div class="row">
+    <div class="col-4">
+    <label>Edit Shipment</label>
+    </div>
+    </div>
+    
     <form:form action="update" method="POST" modelAttribute="shipmentType">
     <pre>
     SHIPMENT ID::
