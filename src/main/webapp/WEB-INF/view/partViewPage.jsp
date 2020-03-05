@@ -6,6 +6,7 @@
 <html>
 <body>
 	<h1 align="center" style="color: olive;">Part View Page</h1>
+	<%@include file="userMenu.jsp"%>
 	<pre>
 <form:form action="save" method="POST" modelAttribute="part">
 CODE::
@@ -16,6 +17,14 @@ LENGTH::
 <form:input path="prtLength" />
 HEIGHT:: 
 <form:input path="prtHeight"/>
+UOM::
+<form:select path="uomOb.id">
+<form:option value="">--select--</form:option>
+<form:options items="${uomList }"
+                                     itemValue="id"
+                                     itemLabel="umoModel"/>
+</form:select>
+
 BASE COST::
 <form:input path="prtCost"/>
 BASE CURRENCY::

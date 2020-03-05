@@ -7,18 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.Part;
-import in.nit.model.ShipmentType;
+import in.nit.model.UOM;
 import in.nit.service.IPartService;
+import in.nit.service.IUmoService;
 import in.nit.view.PartExcelView;
-import in.nit.view.PartPdfView;
-import in.nit.view.ShipmentTypeExcelView;
 import in.nit.view.ShipmentTypePdfView;
 
 @Controller
@@ -27,10 +25,24 @@ public class PartController {
 
 	@Autowired
 	private IPartService service;
+	
+	@Autowired
+	private IUmoService uomService;
+	
+	
+	private void commonUi(Model model) {
+		List<UOM> uomList = uomService.showAll();
+		model.addAttribute("uomList",uomList);
+	}
 
 	@RequestMapping("/show")
 	public String showPart(Model model) {
+		//form backing object
 		model.addAttribute("part", new Part());
+		
+		//integration part
+		commonUi(model);
+		
 		return "partViewPage";
 	}
 
@@ -41,6 +53,10 @@ public class PartController {
 		model.addAttribute("msg", msg);
 		model.addAttribute("part", new Part());
 		//System.out.println("pId " + p.getParId());
+		
+		//integration part
+				commonUi(model);
+				
 		return "partViewPage";
 
 	}
@@ -69,6 +85,10 @@ public class PartController {
 	public String getOnePart(@RequestParam("pId")Integer id,Model model) {
 	Part p = service.getOnePart(id);
 		model.addAttribute("msg", p);
+		
+		//integration part
+				commonUi(model);
+		
 		return "partViewOne";
 	}
 	

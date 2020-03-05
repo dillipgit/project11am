@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
- <h1 align="center" style="color: aqua">Welcome To OrderMethod</h1>
- 
  
  <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
  
  <html>
  <body>
+ <%@include file="userMenu.jsp"%>
+ <div class="container">
+ <div class="card">
+ <div class="card-header bg-primary text-center text-uppercase text-white">
+  <h3>Welcome To OrderMethod</h3>
+ </div>
+ 
+ <div class="card-body">
+ 
  <form:form action="save" method="POST" modelAttribute="orderMethod">
  <pre>
  ORDER MODE::
@@ -30,7 +37,18 @@
  <input type="submit" value="create"/>
  </pre>
  </form:form>
+ 
+ </div>
+ <!--body close  -->
+ 
+ <div class="card-footer bg-primary test-center text-uppercase text-white">
   ${msg} 
+  </div>
+  <!-- footer close -->
+  </div>
+  <!--card close  -->
+  </div>
+  <!--container close  -->
  </body>
  </html>
  

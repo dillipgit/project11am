@@ -5,6 +5,7 @@
 
 <html>
 <h1 align="center" style="color: maroon;">All Part View Page</h1>
+<%@include file="userMenu.jsp"%>
 <body>
 <form:choose>
 <form:when test="${!empty list}">
@@ -14,6 +15,7 @@
 <th>Width</th>
 <th>Length</th>
 <th>Height</th>
+<th>Uom</th>
 <th>Cost</th>
 <th>Currency</th>
 <th>Note</th>
@@ -25,6 +27,7 @@
 <td>${bj.prtWidth}</td>
 <td>${bj.prtLength}</td>
 <td>${bj.prtHeight}</td>
+<td>${bj.uomOb.umoModel}</td>
 <td>${bj.prtCost}</td>
 <td>${bj.prtCurrency}</td>
 <td>${bj.prtDescription}</td>

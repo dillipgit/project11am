@@ -4,7 +4,7 @@
 
 
 <h1 align="center" style="color: fuchsia">All Table</h1>
-
+<%@include file="userMenu.jsp"%>
 <c:choose>
 	<c:when test="${!empty list}">
 		<table border="1">

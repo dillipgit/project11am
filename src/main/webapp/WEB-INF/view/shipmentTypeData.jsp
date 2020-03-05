@@ -8,17 +8,11 @@
 <%@include file="userMenu.jsp" %>
 <div class="container">
 		<div class="card">
-		<div class="card-header bg-primary text-white text-center">
+		<div class="card-header bg-primary text-white text-center text-uppercase">
 		<h3>welcome to shipment type data page</h3>
 		</div>
 		
 		<div class="card-body">
-		<a href="excel"> <img src="../resources/images/excel.jfif"
-		width="120" height="60"></a>
-
-	<a href="pdf"> <img src="../resources/images/pdf.jfif" width="120"
-		height="60"></a>
-		
 	<c:choose>
 		<c:when test="${!empty list }">
 			<table class="table  table-hover">
@@ -66,10 +60,15 @@
 	 </c:otherwise>
 	 </c:choose>
 	 </c:if>
-	 
-
+	
 	</div>
 	<!--close container  -->
+	 <a href="excel"> <img src="../resources/images/excel.jfif"
+		width="120" height="60"></a>
+
+	<a href="pdf"> <img src="../resources/images/pdf.jfif" width="120"
+		height="60"></a>
+	
 </body>
 </html>
 

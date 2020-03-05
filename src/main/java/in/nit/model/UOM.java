@@ -7,8 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
 @Entity
 @Table(name = "UOM")
 public class UOM {

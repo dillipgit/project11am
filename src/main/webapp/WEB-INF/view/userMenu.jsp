@@ -52,7 +52,7 @@
           ORDER METHOD
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="${url}/order/register">REGISTER</a>
+          <a class="dropdown-item" href="${url}/order/show">REGISTER</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="${url}/order/all">ALL</a>
           <div class="dropdown-divider"></div>
@@ -60,6 +60,41 @@
 
         </div>
       </li>
+      
+      
+      <!-- one option start-->
+	      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PART
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${url}/part/show">REGISTER</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/part/all">ALL</a>
+         <%--  <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/part/charts">CHARTS</a>
+ --%>
+        </div>
+      </li>
+      
+       <!-- one option start-->
+	      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UOM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${url}/uom/show">REGISTER</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/uom/all">ALL</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/uom/charts">CHARTS</a>
+
+        </div>
+      </li>
+      
+      
+      
+      
       <!-- one option end -->
       
 	    </ul>

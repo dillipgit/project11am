@@ -6,7 +6,7 @@
   <html>
   <body>
   <h4 align="center" style="color: teal;">Unit Of Measure Page</h4>
-  
+  <%@include file="userMenu.jsp"%>
   <form:form action="save" method="POST" modelAttribute="unitOfMeasure">
   <pre>
    UOM TYPE::
