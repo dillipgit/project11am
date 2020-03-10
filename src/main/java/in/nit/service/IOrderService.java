@@ -17,6 +17,8 @@ public interface IOrderService {
 	public void updateOrderData(OrderMethod om);
 	
 	public List<Object[]> getOrderTypeCount();
+	
+	public List<Object[]> getOrderIdAndCode(String mode);
 
 
 	

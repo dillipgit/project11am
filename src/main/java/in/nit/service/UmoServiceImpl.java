@@ -64,4 +64,11 @@ public class UmoServiceImpl implements IUmoService{
 		return dao.getUOMtypes();
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public List<Object[]> getUomIdAndModel() {
+		List<Object[]> list = dao.getUomIdAndModel();
+		return list;
+	}
+
 }

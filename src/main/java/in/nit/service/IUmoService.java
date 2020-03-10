@@ -14,4 +14,6 @@ public interface IUmoService {
 	public void updateOneUom(UOM uom);
 	
 	public List<Object[]> getUOMtypes();
+	
+	public List<Object[]> getUomIdAndModel();
 }

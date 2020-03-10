@@ -19,6 +19,12 @@
 <th>HEIGHT</th><td>${ob.prtHeight}</td>
 </tr>
 <tr>
+<th>UOM</th><td>${ob.uomOb}</td>
+</tr>
+<tr>
+<th>Sale Mode</th><td>${ob.omSaleOb}</td>
+</tr>
+<tr>
 <th>COST</th><td>${ob.prtCost}</td>
 </tr>
 <tr>

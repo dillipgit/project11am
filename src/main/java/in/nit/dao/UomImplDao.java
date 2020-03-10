@@ -48,4 +48,12 @@ public class UomImplDao implements IUomDao{
 		return (List<Object[]>) ht.find(GET_DATA_BY_TYPE);
 	}
 
+	@Override
+	public List<Object[]> getUomIdAndModel() {
+		String HQLQUERY="select id,umoModel from in.nit.model.UOM";
+		@SuppressWarnings({ "deprecation", "unchecked" })
+		List<Object[]> list = (List<Object[]>) ht.find(HQLQUERY);
+		return list;
+	}
+
 }

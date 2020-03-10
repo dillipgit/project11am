@@ -52,4 +52,14 @@ public class OrderMethodDaoImpl implements IOrderMethodDAO{
 		return (List<Object[]>) ht.find(GET_ORDER_TYPE_COUNT_QUERY);
 	}
 
+	@Override
+	public List<Object[]> getOrderIdAndCode(String mode) {
+		String HQLQUERY="  select om.id,om.code from in.nit.model.OrderMethod om where om.mode = ?0";
+		@SuppressWarnings({ "unchecked", "deprecation" })
+		List<Object[]> list = (List<Object[]>) ht.find(HQLQUERY,mode);
+		
+		
+		return list;
+	}
+
 }

@@ -9,13 +9,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Setter
 @Getter
+@NoArgsConstructor
 @ToString
-//@Entity
+@Entity
 @Table(name = "PURCHASEORDER_TAB")
 public class PurchaseOrder {
 	@Id
@@ -24,17 +26,19 @@ public class PurchaseOrder {
 	@GenericGenerator(name = "PURCHASEORDERID",
 	                                                          strategy = "increment")
 	private Integer pId;
-	@Column(name = "PID")
+	@Column(name = "PCODE")
 	private String pCode;
 	@Column(name = "RNO")
 	private String rNo;
 	@Column(name = "QCHECK")
 	private String qualityCheck;
 	@Column(name = "STATUS")
-	private String status;
+	private String dStatus;
 	@Column(name = "DESC")
 	private String desc;
 	
-	public PurchaseOrder() {
+	public PurchaseOrder(Integer pId) {
+		this.pId=pId;
 	}
+	
 }

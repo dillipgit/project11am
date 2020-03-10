@@ -13,5 +13,7 @@ public interface IOrderMethodDAO {
 	public void updateOrderData(OrderMethod om);
 	
 	public List<Object[]> getOrderTypeCount();
+	
+	public List<Object[]> getOrderIdAndCode(String mode);
 
 }

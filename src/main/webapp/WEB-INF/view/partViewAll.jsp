@@ -16,6 +16,7 @@
 <th>Length</th>
 <th>Height</th>
 <th>Uom</th>
+<th>Code</th>
 <th>Cost</th>
 <th>Currency</th>
 <th>Note</th>
@@ -28,6 +29,7 @@
 <td>${bj.prtLength}</td>
 <td>${bj.prtHeight}</td>
 <td>${bj.uomOb.umoModel}</td>
+<td>${bj.omSaleOb.code}</td>
 <td>${bj.prtCost}</td>
 <td>${bj.prtCurrency}</td>
 <td>${bj.prtDescription}</td>

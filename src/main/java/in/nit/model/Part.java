@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Setter
 @Getter
 @ToString
@@ -47,7 +48,13 @@ public class Part  {
 	@ManyToOne
 	@JoinColumn(name = "uomIdFK")
 	private UOM uomOb;
-
 	
+	@ManyToOne
+	@JoinColumn(name = "omIdFK")
+	private OrderMethod omSaleOb;
+
+	@ManyToOne
+	@JoinColumn(name = "omPIdFK")
+	private OrderMethod omPurchaseOb;
 
 }

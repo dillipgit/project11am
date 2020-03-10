@@ -18,11 +18,21 @@ LENGTH::
 HEIGHT:: 
 <form:input path="prtHeight"/>
 UOM::
-<form:select path="uomOb.id">
+<form:select path="uomOb.id" >
 <form:option value="">--select--</form:option>
-<form:options items="${uomList }"
-                                     itemValue="id"
-                                     itemLabel="umoModel"/>
+<form:options items="${mapUom }"/>
+                                    <%--  itemValue="id"
+                                     itemLabel="umoModel"/> --%>
+</form:select>
+SALE::
+<form:select path="omSaleOb.id" >
+<form:option value="">-select-</form:option>
+<form:options items="${omSaleMap}"/>
+</form:select>
+PURCHASE::
+<form:select path="omPurchaseOb.id" >
+<form:option value="">-select-</form:option>
+<form:options items="${omPurchaseMap}"/>
 </form:select>
 
 BASE COST::

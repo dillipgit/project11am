@@ -66,6 +66,7 @@ public class AppConfig implements WebMvcConfigurer {
 		prop.put("hibernate.show-sql", env.getProperty("orm.showsql"));
 		prop.put("hibernate.format-sql", env.getProperty("orm.fmtsql"));
 		prop.put("hibernate.hbm2ddl.auto", env.getProperty("orm.ddlauto"));
+		
 		return prop;
 	}
 

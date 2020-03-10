@@ -2,6 +2,7 @@ package in.nit.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.Part;
-import in.nit.model.UOM;
+import in.nit.service.IOrderService;
 import in.nit.service.IPartService;
 import in.nit.service.IUmoService;
+import in.nit.utill.CommonUtil;
 import in.nit.view.PartExcelView;
 import in.nit.view.ShipmentTypePdfView;
 
@@ -26,13 +28,30 @@ public class PartController {
 	@Autowired
 	private IPartService service;
 	
+	//for integration
 	@Autowired
 	private IUmoService uomService;
 	
+	@Autowired
+	private IOrderService ordService;
+	
 	
 	private void commonUi(Model model) {
-		List<UOM> uomList = uomService.showAll();
-		model.addAttribute("uomList",uomList);
+		List<Object[]> uomList = uomService.getUomIdAndModel();
+		Map<Integer,String> mapUom = CommonUtil.convert(uomList);
+		model.addAttribute("mapUom",mapUom);
+	//	System.out.println(mapUom.values());
+		
+		System.out.println("=================");
+		
+		List<Object[] > omdList =  ordService.getOrderIdAndCode("sale");
+		Map<Integer,String> omSaleMap=CommonUtil.convert(omdList);
+		model.addAttribute("omSaleMap",omSaleMap);
+		//System.out.println(omSaleMap.values());
+		
+		List<Object[] > omdList1 =  ordService.getOrderIdAndCode("purchase");
+		Map<Integer,String> omPurchaseMap=CommonUtil.convert(omdList);
+		model.addAttribute("omPurchaseMap",omPurchaseMap);
 	}
 
 	@RequestMapping("/show")

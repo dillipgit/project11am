@@ -5,21 +5,22 @@
 <h2 align="center" style="color: maroon;">Welcome To PurchaseOrder
 	ViewPage</h2>
 <body>
-	<form:form action="" method="" modelAttribute="">
+	<form:form action="save" method="post" modelAttribute="purchaseOrder">
 		<pre>
 ORDER CODE::
-<form:input path="" />
+<form:input path="pCode" />
 REF NO::
-<form:input path="" />
+<form:input path="rNo" />
 QUALITY CHECK::
-<form:radiobutton path="" value="" />Required
-<form:radiobutton path="" value="" />Not Required
+<form:radiobutton path="qualityCheck" value="Required" />Required
+<form:radiobutton path="qualityCheck" value="Not Required" />Not Required
 DEFAULT STATUS::
-<form:input path="" />
+<form:input path="dStatus" />
 DESCRIPTION::
-<form:textarea path="" />
+<form:textarea path="desc" />
 <input type="submit" value="place order">
 </pre>
 	</form:form>
+	 ${message}
 </body>
 </html>
