@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -18,27 +20,39 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "PURCHASEORDER_TAB")
+@Table
 public class PurchaseOrder {
 	@Id
-	@Column(name = "PID")
+	@Column(name = "iddVal")
 	@GeneratedValue(generator = "PURCHASEORDERID")
-	@GenericGenerator(name = "PURCHASEORDERID",
-	                                                          strategy = "increment")
-	private Integer pId;
-	@Column(name = "PCODE")
+	@GenericGenerator(name = "PURCHASEORDERID", strategy = "increment")
+	private Integer iddVal;
+	
+	@Column(name = "pCode")
 	private String pCode;
-	@Column(name = "RNO")
+	
+	@Column(name = "rNo")
 	private String rNo;
-	@Column(name = "QCHECK")
+	
+	@Column(name = "qualityCheck")
 	private String qualityCheck;
-	@Column(name = "STATUS")
+	
+	@Column(name = "dStatus")
 	private String dStatus;
-	@Column(name = "DESC")
-	private String desc;
 	
-	public PurchaseOrder(Integer pId) {
-		this.pId=pId;
+	@Column(name = "note")
+	private String note;
+	
+	@ManyToOne
+	@JoinColumn(name = "shipTypeFK")
+	private ShipmentType shipObj;
+	
+	@ManyToOne
+	@JoinColumn(name = "whUserFK")
+	private WhUserTypeModel whUserObj;
+
+	public PurchaseOrder(Integer iddVal) {
+		this.iddVal = iddVal;
 	}
-	
+
 }

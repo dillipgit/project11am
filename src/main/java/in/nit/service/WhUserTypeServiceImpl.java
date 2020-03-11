@@ -49,10 +49,18 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService{
 		
 	}
 
+	@Transactional
 	@Override
 	public List<Object[]> getUserTypeCount() {
 		
 		return dao.getUserTypeCount();
+	}
+
+	@Transactional
+	@Override
+	public List<Object[]> getWhUserTypeIdAndCode(String userType) {
+		
+		return dao.getWhUserTypeIdAndCode(userType);
 	}
 
 }

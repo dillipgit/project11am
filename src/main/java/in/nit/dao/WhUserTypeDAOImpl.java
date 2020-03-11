@@ -55,4 +55,14 @@ public class WhUserTypeDAOImpl implements IWhUserTypeDAO{
 		return (List<Object[]>) ht.find(GET_USERTYPE_COUNT_QUERY);
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Object[]> getWhUserTypeIdAndCode(String userType) {
+		@SuppressWarnings("unused")
+		String HQL="  SELECT userId,userCode FROM  "
+	                             +WhUserTypeModel.class.getName()+
+	                                                 "  where userType = ?0  ";
+		return (List<Object[]>) ht.find(HQL,userType);
+	}
+
 }
