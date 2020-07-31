@@ -45,7 +45,7 @@ public class SaleOrderController {
 	@RequestMapping(method =POST,path = "/save")
 	public String saveSaleOrder(@ModelAttribute SaleOrder order,Model model) {
 		Integer id = service.saveSaleOrder(order);
-		model.addAttribute("message", "Sale Order "+id+" is save");
+		model.addAttribute("message", "Sale Order "+id+" is SAVE");
 		return "saleOrderViewPage";
 		
 	}
